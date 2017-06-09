@@ -83,12 +83,12 @@ Here is the usage information:
 
 These commands can be used to copy files from and to remote hosts, respectively. They are implemented with scp and work similarly, with two exceptions. ssssh-pull only takes one source argument, and it appends a dot and the hostname to the local target (so that files from multiple hosts are all given distinct names).
 
- # ssssh-pull -g cluster01 /etc/passwd .
- # ls
- passwd.svr01  passwd.svr03  passwd.svr05  passwd.svr07  passwd.svr09
- passwd.svr02  passwd.svr04  passwd.svr06  passwd.svr08  passwd.svr10
-
- # ssssh-push -g cluster01 /etc/motd /tmp
+    # ssssh-pull -g cluster01 /etc/passwd .
+    # ls
+    passwd.svr01  passwd.svr03  passwd.svr05  passwd.svr07  passwd.svr09
+    passwd.svr02  passwd.svr04  passwd.svr06  passwd.svr08  passwd.svr10
+    
+    # ssssh-push -g cluster01 /etc/motd /tmp
 
 In our environment, massively parallel ssh/scp sessions sometimes hang. If this happens, you can Control-C and try again. For this reason and others, it may be safer to do the initial copy into a directory like /tmp and then a 'ssssh mv' to atomically move the file into its final position when pushing critical system files.
 
